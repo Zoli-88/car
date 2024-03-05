@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.svg-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.car-svg {
+  max-width: 750px;
+}
+
+.controls {
+  border: .2rem solid lightblue;
+  padding: 1rem;
+}
