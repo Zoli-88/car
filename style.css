@@ -10,10 +10,15 @@
 }
 
 .car-svg {
-  max-width: 750px;
+  transition: transform .4s ease;
 }
 
 .controls {
-  border: .2rem solid lightblue;
   padding: 1rem;
+  background-color: #333;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

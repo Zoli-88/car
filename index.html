@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Coloring Project</title>
+  <title>Car Project</title>
   <link rel="stylesheet" href="style.css">
   <script src="/script.js" defer></script>
 </head>
@@ -13,7 +13,7 @@
       <?xml version="1.0" encoding="utf-8"?>
       <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
       <!-- SVG artwork by glow.team, download link https://www.svgrepo.com/svg/408292/car-white -->
-      <svg class="car-svg" viewBox="0 -113 1202 1202" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="car-svg" width="750" height="750" viewBox="0 -113 1202 1202" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_3_405)">
       <path d="M888.226 718.402C931.45 704.691 1009.97 667.778 1038.01 640.876C1070.37 612.676 1002.01 582.579 993.886 578.014C985.761 573.448 586.962 382.492 517.458 353.047C447.954 323.603 230.093 390.788 177.534 420.935C134.691 445.508 165.438 462.041 171.26 466.638C177.082 471.236 509.565 650.563 628.935 705.047C719.334 746.307 803.384 745.314 888.226 718.402Z" fill="#000000" fill-opacity="0.2"/>
         </g>
@@ -421,9 +421,16 @@
     </div>
   </div>
   <div class="controls">
-    <div class="scale-switch">
+    <div class="scale-controls">
+      <p>Zoom</p>
       <label for="scale">Scale:</label>
-      <input type="range" id="scale" min="0.5" max="2" step="0.1" value="1">
+      <input type="range" id="scale" min="0.75" max="1.25" step="any" value="1">
+    </div>
+    <div class="color-controls">
+      <p>Color</p>
+    </div>
+    <div class="engine-controls">
+      <p>Engine</p>
     </div>
   </div>
 </body>
