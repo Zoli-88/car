@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+  color: greenyellow;
+}
+
 .svg-wrapper {
   display: flex;
   justify-content: center;
@@ -21,4 +26,9 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.scale-controls label {
+  display: block;
+  margin-bottom: .4rem;
 }
