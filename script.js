@@ -1,8 +1,16 @@
 // ===== Variables =====
 // DOM Elements
+// Scale related
 const $rangeLabel = document.querySelector('label[for="scale"]');
 const $rangeInput = document.querySelector('input[id="scale"]');
 const $car = document.querySelector('.car-svg');
+
+// Color related
+const $bodyColorInput = document.querySelector('input[id="body-color"]');
+const $bodyColor = document.querySelector('[id="body-front-color"]');
+
+// id="paint7_linear_3_405" - side window gradient
+// id="paint6_linear_3_405" - front window gradient
 
 // Car scale related values
 const minScaleValue = 0.75;
@@ -20,8 +28,10 @@ displayInitialZoomLevel();
 
 // ===== Event Listeners =====
 $rangeInput.addEventListener('input', scaleCar);
+$bodyColorInput.addEventListener('input', paintCarBody);
 
 // ===== Functions =====
+// Scale related
 function initialScale() {
   $car.style.transform = `scale(${initialScaleValue})`;
 }
@@ -43,4 +53,10 @@ function displayZoomLevel(scaleValue) {
 
 function mapValue(value, minInput, maxInput, minOutput, maxOutput) {
   return minOutput + ((value - minInput) / (maxInput - minInput)) * (maxOutput - minOutput);
+}
+
+// Color related
+function paintCarBody() {
+  const colorValue = this.value;
+  $bodyColor.setAttribute('stop-color', colorValue);
 }
