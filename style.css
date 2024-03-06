@@ -15,6 +15,7 @@ body {
 }
 
 .car-svg {
+  /* Transform property is manipulated in JS */
   transition: transform .4s ease;
 }
 
