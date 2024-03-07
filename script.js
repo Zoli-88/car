@@ -79,7 +79,10 @@ const car = {
   },
   // Finish related
   applyFinish(type) {
-    console.log(type);
+    if (type.value === "matte") return;
+    if (type.value === "gloss") {
+      this.bodyColor.front.classList.add("gloss");
+    }
   },
   // Scale related
   initialScale() {
@@ -107,9 +110,7 @@ $rangeInput.addEventListener('input', function() {car.scaleCar(this.value)});
 $bodyColorInput.addEventListener('input', function() {car.paintCarBody(this.value)});
 $windowColorInput.addEventListener('input', function() {car.paintCarWindows(this.value)});
 $wheelsRimColorInput.addEventListener('input', function() {car.paintWheels(this.value)});
-$finishTypeInput.forEach((type) => type.addEventListener('change', function() {
-  console.log(this.value);
-}));
+$finishTypeInput.forEach((type) => type.addEventListener('change', function() {car.applyFinish(type)}));
 
 // ===== Functions =====
 // Helper functions
