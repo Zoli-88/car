@@ -14,8 +14,10 @@ const $bodyBackColor = document.querySelector('[id="body-back-color"]');
 
 // Windows
 const $windowColorInput = document.querySelector('input[id="window-color"]');
-const $sideWindowColor = document.querySelector('[id="side-window-color"]');
-const $frontWindowColor = document.querySelector('[id="front-window-color"]');
+const $sideWindowFrontColor = document.querySelector('[id="side-window-color-front"]');
+const $sideWindowBackColor = document.querySelector('[id="side-window-color-back"]');
+const $frontWindowColorLeft = document.querySelector('[id="front-window-color-left"]');
+const $frontWindowColorRight = document.querySelector('[id="front-window-color-right"]');
 
 const car = {
   // Car scale related properties
@@ -31,8 +33,14 @@ const car = {
     back: $bodyBackColor
   },
   windowColor: {
-    front: $frontWindowColor,
-    side: $sideWindowColor
+    front: {
+      left: $frontWindowColorLeft,
+      right: $frontWindowColorRight
+    },
+    side: {
+      front: $sideWindowFrontColor,
+      back: $sideWindowBackColor
+    }
   },
   // Methods
   // Color related
@@ -42,8 +50,11 @@ const car = {
     this.bodyColor.back.setAttribute('stop-color', darkenColor(color, darkenPercent));
   },
   paintCarWindows(color) {
-    this.windowColor.front.setAttribute('stop-color', color);
-    this.windowColor.side.setAttribute('stop-color', color);
+    const darkenPercent = 70;
+    this.windowColor.front.left.setAttribute('stop-color', color);
+    this.windowColor.front.right.setAttribute('stop-color', darkenColor(color, darkenPercent));
+    this.windowColor.side.front.setAttribute('stop-color', color);
+    this.windowColor.side.back.setAttribute('stop-color', darkenColor(color, darkenPercent));
   },
   // Scale related
   initialScale() {
