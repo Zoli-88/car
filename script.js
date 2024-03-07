@@ -19,6 +19,10 @@ const $sideWindowBackColor = document.querySelector('[id="side-window-color-back
 const $frontWindowColorLeft = document.querySelector('[id="front-window-color-left"]');
 const $frontWindowColorRight = document.querySelector('[id="front-window-color-right"]');
 
+// Wheels
+const $wheelsRimColorInput = document.querySelector('[input="wheels-rim-color"]');
+const $wheelsRimColorOuter = document.querySelector('[id="wheels-rim-outer-side"]');
+
 const car = {
   // Car scale related properties
   initialZoomLevel: 50,
@@ -41,6 +45,9 @@ const car = {
       front: $sideWindowFrontColor,
       back: $sideWindowBackColor
     }
+  },
+  wheelsColor: {
+    outerRim: $wheelsRimColorOuter,
   },
   // Methods
   // Color related
