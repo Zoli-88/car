@@ -81,7 +81,7 @@ const car = {
   applyFinish(type) {
     if (type.value === "matte") return;
     if (type.value === "gloss") {
-      this.bodyColor.front.classList.add("gloss");
+      console.log("gloss");
     }
   },
   // Scale related
