@@ -7,7 +7,26 @@ const $car = document.querySelector('.car-svg');
 
 // Color related
 const $bodyColorInput = document.querySelector('input[id="body-color"]');
-const $bodyColor = document.querySelector('[id="body-front-color"]');
+
+// Body
+const $bodyFrontColor = document.querySelector('[id="body-front-color"]');
+const $bodyBackColor = document.querySelector('[id="body-back-color"]');
+
+// Windows
+const $windowColorInput = document.querySelector('input[id="window-color"]');
+const $sideWindowColor = document.querySelector('[id="side-window-color"]');
+const $frontWindowColor = document.querySelector('[id="front-window-color"]');
+
+const car = {
+  bodyColor: {
+    front: $bodyFrontColor,
+    back: $bodyBackColor
+  },
+  windowColor: {
+    front: $frontWindowColor,
+    side: $sideWindowColor
+  }
+}
 
 // id="paint7_linear_3_405" - side window gradient
 // id="paint6_linear_3_405" - front window gradient
@@ -29,6 +48,7 @@ displayInitialZoomLevel();
 // ===== Event Listeners =====
 $rangeInput.addEventListener('input', scaleCar);
 $bodyColorInput.addEventListener('input', paintCarBody);
+$windowColorInput.addEventListener('input', paintCarWindows);
 
 // ===== Functions =====
 // Scale related
@@ -58,5 +78,12 @@ function mapValue(value, minInput, maxInput, minOutput, maxOutput) {
 // Color related
 function paintCarBody() {
   const colorValue = this.value;
-  $bodyColor.setAttribute('stop-color', colorValue);
+  car.bodyColor.front.setAttribute('stop-color', colorValue);
+  car.bodyColor.back.setAttribute('stop-color', colorValue);
+}
+
+function paintCarWindows() {
+  const colorValue = this.value;
+  car.windowColor.front.setAttribute('stop-color', colorValue);
+  car.windowColor.side.setAttribute('stop-color', colorValue);
 }
