@@ -9,19 +9,20 @@ const $car = document.querySelector('.car-svg');
 const $bodyColorInput = document.querySelector('input[id="body-color"]');
 
 // Body
-const $bodyFrontColor = document.querySelector('[id="body-front-color"]');
-const $bodyBackColor = document.querySelector('[id="body-back-color"]');
+const $bodyFrontColor = document.querySelector('[data="body-front-color"]');
+const $bodyBackColor = document.querySelector('[data="body-back-color"]');
 
 // Windows
 const $windowColorInput = document.querySelector('input[id="window-color"]');
-const $sideWindowFrontColor = document.querySelector('[id="side-window-color-front"]');
-const $sideWindowBackColor = document.querySelector('[id="side-window-color-back"]');
-const $frontWindowColorLeft = document.querySelector('[id="front-window-color-left"]');
-const $frontWindowColorRight = document.querySelector('[id="front-window-color-right"]');
+const $sideWindowFrontColor = document.querySelector('[data="side-window-color-front"]');
+const $sideWindowBackColor = document.querySelector('[data="side-window-color-back"]');
+const $frontWindowColorLeft = document.querySelector('[data="front-window-color-left"]');
+const $frontWindowColorRight = document.querySelector('[data="front-window-color-right"]');
 
 // Wheels
-const $wheelsRimColorInput = document.querySelector('[input="wheels-rim-color"]');
-const $wheelsRimColorOuter = document.querySelector('[id="wheels-rim-outer-side"]');
+const $wheelsRimColorInput = document.querySelector('input[id="wheels-rim-color"]');
+const $wheelsRimColorOuter = document.querySelectorAll('[data="wheels-rim-outer-side"]');
+const $wheelsRimColorInner = document.querySelectorAll('[data="wheels-rim-inner-side"]');
 
 const car = {
   // Car scale related properties
@@ -47,7 +48,8 @@ const car = {
     }
   },
   wheelsColor: {
-    outerRim: $wheelsRimColorOuter,
+    outerRims: $wheelsRimColorOuter,
+    innerRims: $wheelsRimColorInner
   },
   // Methods
   // Color related
@@ -62,6 +64,15 @@ const car = {
     this.windowColor.front.right.setAttribute('stop-color', darkenColor(color, darkenPercent));
     this.windowColor.side.front.setAttribute('stop-color', color);
     this.windowColor.side.back.setAttribute('stop-color', darkenColor(color, darkenPercent));
+  },
+  paintWheels(color) {
+    const darkenPercent = 50;
+    this.wheelsColor.outerRims.forEach(function(wheel) {
+      wheel.setAttribute('stop-color', color);
+    });
+    this.wheelsColor.innerRims.forEach(function(wheel) {
+      wheel.setAttribute('fill', darkenColor(color, darkenPercent));
+    });
   },
   // Scale related
   initialScale() {
@@ -88,6 +99,7 @@ car.displayInitialZoomLevel();
 $rangeInput.addEventListener('input', function() {car.scaleCar(this.value)});
 $bodyColorInput.addEventListener('input', function() {car.paintCarBody(this.value)});
 $windowColorInput.addEventListener('input', function() {car.paintCarWindows(this.value)});
+$wheelsRimColorInput.addEventListener('input', function() {car.paintWheels(this.value)});
 
 // ===== Functions =====
 // Helper functions
