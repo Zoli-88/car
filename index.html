@@ -425,21 +425,40 @@
   </div>
   <div class="controls">
     <div class="scale-controls">
-      <p>Zoom</p>
-      <label for="scale">Zoom level:</label>
-      <input type="range" id="scale" min="1" max="100" step="any" value="50">
+      <p class="category-title">Scale</p>
+      <fieldset>
+        <legend>Zoom</legend>
+        <label for="scale">Level:</label>
+        <input type="range" id="scale" min="1" max="100" step="any" value="50">
+      </fieldset>
     </div>
     <div class="color-controls">
-      <p>Color</p>
-      <label for="body-color">Body Color</label>
-      <input type="color" id="body-color">
-      <label for="window-color">Window Tint</label>
-      <input type="color" id="window-color">
-      <label for="wheels-rim-color">Wheels Tint</label>
-      <input type="color" id="wheels-rim-color">
+      <p class="category-title">Paint</p>
+      <fieldset>
+        <legend>Body Color</legend>
+        <label for="body-color">Choose a color:</label>
+        <input type="color" id="body-color">
+        <div>
+          <span>Finish</span>
+          <input type="radio" id="matte-finish" name="finish" value="matte">
+          <label for="matte-finish">Matte</label>
+          <input type="radio" id="glossy-finish" name="finish" value="glossy">
+          <label for="glossy-finish">Glossy</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Window Tint</legend>
+        <label for="window-color">Choose a color:</label>
+        <input type="color" id="window-color">
+      </fieldset>
+      <fieldset>
+        <legend>Wheels Tint</legend>
+        <label for="wheels-rim-color">Choose a color:</label>
+        <input type="color" id="wheels-rim-color">
+      </fieldset>
     </div>
     <div class="engine-controls">
-      <p>Engine</p>
+      <p class="category-title">Engine</p>
     </div>
   </div>
 </body>

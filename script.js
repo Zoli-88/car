@@ -24,6 +24,9 @@ const $wheelsRimColorInput = document.querySelector('input[id="wheels-rim-color"
 const $wheelsRimColorOuter = document.querySelectorAll('[data="wheels-rim-outer-side"]');
 const $wheelsRimColorInner = document.querySelectorAll('[data="wheels-rim-inner-side"]');
 
+// Finish
+const $finishTypeInput = document.querySelectorAll('input[name="finish"]');
+
 const car = {
   // Car scale related properties
   initialZoomLevel: 50,
@@ -74,6 +77,10 @@ const car = {
       wheel.setAttribute('fill', darkenColor(color, darkenPercent));
     });
   },
+  // Finish related
+  applyFinish(type) {
+    console.log(type);
+  },
   // Scale related
   initialScale() {
     $car.style.transform = `scale(${this.initialScaleValue})`;
@@ -84,10 +91,10 @@ const car = {
     car.displayZoomLevel(scaleValue);
   },
   displayInitialZoomLevel() {
-    $rangeLabel.textContent = `Zoom level: ${this.initialZoomLevel}%`;
+    $rangeLabel.textContent = `Level: ${this.initialZoomLevel}%`;
   },
   displayZoomLevel(value) {
-    $rangeLabel.textContent = `Zoom level: ${value}%`;
+    $rangeLabel.textContent = `Level: ${value}%`;
   }
 }
 
@@ -100,6 +107,9 @@ $rangeInput.addEventListener('input', function() {car.scaleCar(this.value)});
 $bodyColorInput.addEventListener('input', function() {car.paintCarBody(this.value)});
 $windowColorInput.addEventListener('input', function() {car.paintCarWindows(this.value)});
 $wheelsRimColorInput.addEventListener('input', function() {car.paintWheels(this.value)});
+$finishTypeInput.forEach((type) => type.addEventListener('change', function() {
+  console.log(this.value);
+}));
 
 // ===== Functions =====
 // Helper functions

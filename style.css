@@ -15,7 +15,7 @@ body {
 }
 
 .car-svg {
-  /* Transform property is manipulated in JS */
+  /* Transform scale property is manipulated in JS */
   transition: transform .4s ease;
 }
 
@@ -24,9 +24,16 @@ body {
   background-color: #333;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.category-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .scale-controls label {
