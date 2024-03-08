@@ -26,6 +26,7 @@ const $wheelsRimColorInner = document.querySelectorAll('[data="wheels-rim-inner-
 
 // Finish
 const $finishTypeInput = document.querySelectorAll('input[name="finish"]');
+const $bodyFinish = document.querySelector('[data="body-finish"]');
 
 const car = {
   // Car scale related properties
@@ -38,7 +39,8 @@ const car = {
   // Car color related properties
   bodyColor: {
     front: $bodyFrontColor,
-    back: $bodyBackColor
+    back: $bodyBackColor,
+    finish: $bodyFinish
   },
   windowColor: {
     front: {
@@ -79,9 +81,11 @@ const car = {
   },
   // Finish related
   applyFinish(type) {
-    if (type.value === "matte") return;
+    if (type.value === "matte") {
+      this.bodyColor.finish.removeAttribute('class');
+    }
     if (type.value === "gloss") {
-      console.log("gloss");
+      this.bodyColor.finish.classList.add('gloss');
     }
   },
   // Scale related
