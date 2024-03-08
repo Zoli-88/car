@@ -67,6 +67,7 @@ const car = {
     const darkenPercent = 30;
     this.bodyColor.front.setAttribute('stop-color', color);
     this.bodyColor.back.setAttribute('stop-color', darkenColor(color, darkenPercent));
+    $glossGradientColors.forEach((color) => color.setAttribute('stop-color', this.bodyColor.front.getAttribute('stop-color')));
   },
   paintCarWindows(color) {
     const darkenPercent = 70;
@@ -88,9 +89,7 @@ const car = {
   applyFinish(type) {
     if (type.value === "matte") {
       this.bodyColor.finish.setAttribute('fill', matteFinish);
-    }
-    if (type.value === "gloss") {
-      $glossGradientColors.forEach((color) => color.setAttribute('stop-color', this.bodyColor.front.getAttribute('stop-color')));
+    } else if (type.value === "gloss") {
       this.bodyColor.finish.setAttribute('fill', glossFinish);
     }
   },
