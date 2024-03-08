@@ -55,13 +55,20 @@ img {
 .accelerate {
   cursor: pointer;
   max-width: 5rem;
+  perspective: 2rem;
 }
 
-.break,
-.accelerate figcaption {
-  text-align: center;
+.break img,
+.accelerate img {
+  filter: drop-shadow(.2rem .2rem 0 #0f0f0f);
 }
 
 .break.active img {
-  transform: rotateX(-20deg);
+  transform: rotateX(-4deg);
+  transform-origin: top;
+  filter: drop-shadow(.2rem .2rem 0 #0f0f0f);
+}
+
+.caption {
+  text-align: center;
 }
