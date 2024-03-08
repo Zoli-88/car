@@ -16,6 +16,10 @@ const $glossGradientColors = document.querySelectorAll('[data="gloss-gradient-co
 const $bodyFrontColor = document.querySelector('[data="body-front-color"]');
 const $bodyBackColor = document.querySelector('[data="body-back-color"]');
 
+// Headlights
+const $leftHeadlight = document.querySelector('[data="left-headlight"]');
+const $rightHeadlight = document.querySelector('[data="right-headlight"]');
+
 // Windows
 const $windowColorInput = document.querySelector('input[id="window-color"]');
 const $sideWindowFrontColor = document.querySelector('[data="side-window-color-front"]');
@@ -35,6 +39,9 @@ const $bodyFinish = document.querySelector('[data="body-finish"]');
 // SVG Gradients
 const matteFinish = 'url(#paint4_linear_3_405)';
 const glossFinish = 'url(#paint12_linear_3_405)';
+
+// Controls
+const $breakPedal = document.querySelector('[data="break-pedal"]');
 
 const car = {
   // Car scale related properties
@@ -63,6 +70,15 @@ const car = {
   wheelsColor: {
     outerRims: $wheelsRimColorOuter,
     innerRims: $wheelsRimColorInner
+  },
+  engine: {
+    pedals: {
+      break: $breakPedal
+    }
+  },
+  headLights : {
+    left: $leftHeadlight,
+    right: $rightHeadlight
   },
   // Methods
   // Color related
@@ -115,6 +131,17 @@ const car = {
     this.initialScale();
     this.displayInitialZoomLevel();
     $rangeInput.value = this.initialZoomLevel;
+  },
+  // Engine controls
+  pressBreak() {
+    this.engine.pedals.break.classList.add('active');
+    this.headLights.left.setAttribute('stroke', 'red');
+    this.headLights.right.setAttribute('stroke', 'red');
+  },
+  releaseBreak() {
+    this.engine.pedals.break.classList.remove('active');
+    this.headLights.left.setAttribute('stroke', 'white');
+    this.headLights.right.setAttribute('stroke', 'white');
   }
 }
 
@@ -129,8 +156,11 @@ $bodyColorInput.addEventListener('input', function() {car.paintCarBody(this.valu
 $windowColorInput.addEventListener('input', function() {car.paintCarWindows(this.value)});
 $wheelsRimColorInput.addEventListener('input', function() {car.paintWheels(this.value)});
 $finishTypeInput.forEach((type) => type.addEventListener('change', function() {car.applyFinish(type)}));
+
 // Buttons
 $zoomLevelResetBtn.addEventListener('click', function() {car.resetZoomLevel()});
+$breakPedal.addEventListener('mousedown', function() {car.pressBreak()});
+$breakPedal.addEventListener('mouseup', function() {car.releaseBreak()});
 
 // ===== Functions =====
 // Helper functions

@@ -48,9 +48,11 @@ img {
 
 .pedals {
   display: flex;
+  gap: .4rem;
 }
 
 .break, 
 .accelerate {
+  cursor: pointer;
   max-width: 5rem;
 }
