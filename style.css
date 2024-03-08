@@ -9,11 +9,37 @@ body {
   color: greenyellow;
 }
 
+fieldset {
+  padding: 1rem;
+  margin-bottom: .4rem;
+}
+
 img {
   display: block;
   width: 100%;
   max-width: 100%;
 }
+
+button {
+  display: inline-block;
+  font: inherit;
+  text-transform: uppercase;
+  color: yellowgreen;
+  background-color: inherit;
+  padding: .6rem 1rem;
+  box-shadow: 0 .4rem #0f0f0f;
+  outline: .1rem solid yellowgreen;
+  border: none;
+  border-radius: .2rem;
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(.2rem);
+  transform-origin: top;
+}
+
 .svg-wrapper {
   display: flex;
   justify-content: center;
@@ -46,6 +72,12 @@ img {
   margin-bottom: .4rem;
 }
 
+.scale-controls .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .pedals {
   display: flex;
   gap: .4rem;
@@ -60,13 +92,13 @@ img {
 
 .break img,
 .accelerate img {
-  filter: drop-shadow(.2rem .2rem 0 #0f0f0f);
+  filter: drop-shadow(0 .2rem 0 #0f0f0f);
 }
 
 .break.active img {
   transform: rotateX(-4deg);
   transform-origin: top;
-  filter: drop-shadow(.2rem .2rem 0 #0f0f0f);
+  filter: none;
 }
 
 .caption {
