@@ -7,6 +7,7 @@ const $car = document.querySelector('.car-svg');
 
 // Color related
 const $bodyColorInput = document.querySelector('input[id="body-color"]');
+const $glossGradientColors = document.querySelectorAll('[data="gloss-gradient-colors"]');
 
 // Body
 const $bodyFrontColor = document.querySelector('[data="body-front-color"]');
@@ -27,6 +28,10 @@ const $wheelsRimColorInner = document.querySelectorAll('[data="wheels-rim-inner-
 // Finish
 const $finishTypeInput = document.querySelectorAll('input[name="finish"]');
 const $bodyFinish = document.querySelector('[data="body-finish"]');
+
+// SVG Gradients
+const matteFinish = 'url(#paint4_linear_3_405)';
+const glossFinish = 'url(#paint12_linear_3_405)';
 
 const car = {
   // Car scale related properties
@@ -82,10 +87,11 @@ const car = {
   // Finish related
   applyFinish(type) {
     if (type.value === "matte") {
-      this.bodyColor.finish.removeAttribute('class');
+      this.bodyColor.finish.setAttribute('fill', matteFinish);
     }
     if (type.value === "gloss") {
-      this.bodyColor.finish.classList.add('gloss');
+      $glossGradientColors.forEach((color) => color.setAttribute('stop-color', this.bodyColor.front.getAttribute('stop-color')));
+      this.bodyColor.finish.setAttribute('fill', glossFinish);
     }
   },
   // Scale related

@@ -19,10 +19,6 @@ body {
   transition: transform .4s ease;
 }
 
-.gloss {
-  fill: red;
-}
-
 .controls {
   padding: 1rem;
   background-color: #333;
