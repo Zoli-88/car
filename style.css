@@ -9,6 +9,11 @@ body {
   color: greenyellow;
 }
 
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
 .svg-wrapper {
   display: flex;
   justify-content: center;
@@ -39,4 +44,13 @@ body {
 .scale-controls label {
   display: block;
   margin-bottom: .4rem;
+}
+
+.pedals {
+  display: flex;
+}
+
+.break, 
+.accelerate {
+  max-width: 5rem;
 }
