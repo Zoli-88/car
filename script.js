@@ -1,9 +1,12 @@
 // ===== Variables =====
 // DOM Elements
+// Car
+const $car = document.querySelector('.car-svg');
+
 // Scale related
 const $rangeLabel = document.querySelector('label[for="scale"]');
 const $rangeInput = document.querySelector('input[id="scale"]');
-const $car = document.querySelector('.car-svg');
+const $zoomLevelResetBtn = document.querySelector('[data="zoom-level-reset"]');
 
 // Color related
 const $bodyColorInput = document.querySelector('input[id="body-color"]');
@@ -107,6 +110,11 @@ const car = {
   },
   displayZoomLevel(value) {
     $rangeLabel.textContent = `Level: ${value}%`;
+  },
+  resetZoomLevel() {
+    this.initialScale();
+    this.displayInitialZoomLevel();
+    $rangeInput.value = this.initialZoomLevel;
   }
 }
 
@@ -115,11 +123,14 @@ car.initialScale();
 car.displayInitialZoomLevel();
 
 // ===== Event Listeners =====
+// Inputs
 $rangeInput.addEventListener('input', function() {car.scaleCar(this.value)});
 $bodyColorInput.addEventListener('input', function() {car.paintCarBody(this.value)});
 $windowColorInput.addEventListener('input', function() {car.paintCarWindows(this.value)});
 $wheelsRimColorInput.addEventListener('input', function() {car.paintWheels(this.value)});
 $finishTypeInput.forEach((type) => type.addEventListener('change', function() {car.applyFinish(type)}));
+// Buttons
+$zoomLevelResetBtn.addEventListener('click', function() {car.resetZoomLevel()});
 
 // ===== Functions =====
 // Helper functions
